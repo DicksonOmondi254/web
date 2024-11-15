@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cywotek - Cyber Services</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #001F3F; /* Navy blue background */
+            color: yellow; /* Text color */
+        }
+
+        header {
+            background: rgba(128, 0, 128, 0.8); /* Purple background */
+            color: yellow;
+            padding: 1em 0;
+            text-align: center;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: yellow;
+            text-decoration: none;
+            padding: 5px 10px;
+            transition: background-color 0.3s;
+        }
+
+        nav a:hover {
+            background-color: rgba(128, 0, 128, 0.5);
+        }
+
+        main {
+            padding: 20px;
+            background-color: rgba(75, 0, 130, 0.7);
+            border-radius: 8px;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1em 0;
+            background: rgba(128, 0, 128, 0.8);
+            color: yellow;
+        }
+
+        .add-to-cart, .view-cart, .pay-mpesa, .login-button, .register-button, .next-button, .back-button {
+            background-color: yellow; /* Button color */
+            color: #088137; /* Text color for buttons */
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .add-to-cart:hover, .view-cart:hover, .pay-mpesa:hover, .login-button:hover, .register-button:hover, .next-button:hover, .back-button:hover {
+            background-color: rgba(255, 215, 0, 0.8); /* Lighten on hover */
+        }
+
+        #cart {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: rgba(255, 255, 255, 0.1); /* Slightly visible background */
+            color: yellow; /* Text color */
+        }
+
+        #video-container {
+            margin: 20px 0;
+        }
+
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+
+        #mpesa-payment, #login-section {
+            display: none;
+            margin-top: 20px;
+        }
+
+        #mpesa-result, #login-result {
+            color: yellow; /* Result text color */
+            margin-top: 10px;
+        }
+
+        /* Centered login styling */
+        #login-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background-color: green; /* Green background */
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            margin: 0 auto;
+            color: white; /* Text color for login section */
+        }
+
+        #login-section input {
+            margin: 10px 0;
+            padding: 10px;
+            width: 90%; /* Responsive input width */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Cywotek</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="login-button">Login</a></li>
+                <li><a href="#" id="home-button">Home</a></li>
+                <li><a href="#" id="services-button">Services</a></li>
+                <li><a href="#" id="products-button">Products</a></li>
+                <li><a href="#" id="about-button">About Us</a></li>
+                <li><a href="#" id="contact-button">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="login-section" class="section">
+            <h2>Login</h2>
+            <p id="login-result"></p>
+            <label for="username">Username:</label>
+            <input type="text" id="username" placeholder="Enter your username">
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Enter your password">
+            <button class="login-button">Sign In</button>
+            <h2>Sign Up</h2>
+            <label for="new-username">New Username:</label>
+            <input type="text" id="new-username" placeholder="Choose a username">
+            <label for="new-password">New Password:</label>
+            <input type="password" id="new-password" placeholder="Choose a password">
+            <button class="register-button">Sign Up</button>
+        </section>
+
+        <section id="home" class="section" style="display:none;">
+            <h2>Home</h2>
+            <div id="video-container">
+                <video controls>
+                    <source src="7914855-hd_1920_1080_30fps" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            </div>
+            <button class="next-button">Next</button>
+        </section>
+
+        <section id="services" class="section" style="display:none;">
+            <h2>Our Services</h2>
+            <div>
+                <h3>Printing</h3>
+                <p>High-quality printing services.</p>
+                <button class="add-to-cart" data-service="Printing">Hire Service</button>
+            </div>
+            <div>
+                <h3>Photocopying</h3>
+                <p>Fast and reliable photocopying services.</p>
+                <button class="add-to-cart" data-service="Photocopying">Hire Service</button>
+            </div>
+            <div>
+                <h3>KRA Pin Application</h3>
+                <p>Assistance with KRA pin applications.</p>
+                <button class="add-to-cart" data-service="KRA Pin Application">Hire Service</button>
+            </div>
+            <div>
+                <h3>HELB Application</h3>
+                <p>Support for HELB applications.</p>
+                <button class="add-to-cart" data-service="HELB Application">Hire Service</button>
+            </div>
+            <div>
+                <h3>SHA Application</h3>
+                <p>Help with SHA applications.</p>
+                <button class="add-to-cart" data-service="SHA Application">Hire Service</button>
+            </div>
+            <div>
+                <h3>Logo Designing</h3>
+                <p>Creative logo design services.</p>
+                <button class="add-to-cart" data-service="Logo Designing">Hire Service</button>
+            </div>
+            <div>
+                <h3>Phone Repair</h3>
+                <p>Expert phone repair services.</p>
+                <button class="add-to-cart" data-service="Phone Repair">Hire Service</button>
+            </div>
+            <div>
+                <h3>Vehicle Transfer</h3>
+                <p>Vehicle transfer services available.</p>
+                <button class="add-to-cart" data-service="Vehicle Transfer">Hire Service</button>
+            </div>
+            <button class="view-cart">View Cart</button>
+            <div id="mpesa-payment">
+                <h2>M-Pesa Payment</h2>
+                <label for="mpesa-phone">Enter your M-Pesa Phone Number:</label>
+                <input type="text" id="mpesa-phone" placeholder="+254XXXXXXX">
+                <label for="mpesa-amount">Amount:</label>
+                <input type="number" id="mpesa-amount" placeholder="Amount">
+                <button class="pay-mpesa">Pay with M-Pesa</button>
+                <div id="mpesa-result"></div>
+            </div>
+            <button class="back-button">Back</button>
+            <button class="next-button">Next</button>
+        </section>
+
+        <section id="products" class="section" style="display:none;">
+            <h2>Our Products</h2>
+            <p>We offer Certificates in computing courses upon completion of the course duration and various computer classes.</p>
+            <button class="back-button">Back</button>
+            <button class="next-button">Next</button>
+        </section>
+
+        <section id="about" class="section" style="display:none;">
+            <h2>About Us</h2>
+            <p>Cywotek is located along KIANJAI-MAUA Road beside WITTY CLUB AND RESTAURANT & MEPHA HOTEL.</p>
+            <p>Developed by MERU UNIVERSITY STUDENT.</p>
+            <button class="back-button">Back</button>
+            <button class="next-button">Next</button>
+        </section>
+
+        <section id="contact" class="section" style="display:none;">
+            <h2>Contact Us</h2>
+            <p>Email: <a href="mailto:dickomondi43@gmail.com">dickomondi43@gmail.com</a></p>
+            <p>WhatsApp: <a href="https://wa.me/0703589145">0703589145</a></p>
+            <p>Facebook: <a href="https://facebook.com/McRashidOmondi">Mc Rashid Omondi</a></p>
+            <p>X: <a href="https://twitter.com/cywotek">@cywotek</a></p>
+            <p>Instagram: <a href="https://instagram.com/cywotek">@cywotek</a></p>
+            <button class="back-button">Back</button>
+        </section>
+
+        <div id="cart" style="display: none;">
+            <h3>Your Cart</h3>
+            <p id="cart-items">No services selected.</p>
+            <p id="cart-count">Total services: 0</p>
+            <button class="back-button">Back</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 Cywotek. All rights reserved.</p>
+    </footer>
+    <script>
+        const cartItems = [];
+        const cartCount = document.getElementById('cart-count');
+        const cartDisplay = document.getElementById('cart-items');
+
+        // Sample registered user
+        let registeredUser = {
+            username: "user123",
+            password: "password123"
+        };
+
+        // Function to hide all sections
+        function hideAllSections() { 
+            document.getElementById('login-section').style.display = 'none';
+            document.getElementById('home').style.display = 'none';
+            document.getElementById('services').style.display = 'none';
+            document.getElementById('products').style.display = 'none';
+            document.getElementById('about').style.display = 'none';
+            document.getElementById('contact').style.display = 'none';
+            document.getElementById('cart').style.display = 'none';
+            document.getElementById('mpesa-payment').style.display = 'none';
+        }
+
+        // Show login section on load
+        hideAllSections();
+        document.getElementById('login-section').style.display = 'block';
+
+        // Event listeners for navigation buttons
+        document.getElementById('home-button').addEventListener('click', function() {
+            hideAllSections();
+            document.getElementById('home').style.display = 'block';
+        });
+
+        document.getElementById('services-button').addEventListener('click', function() {
+            hideAllSections();
+            document.getElementById('services').style.display = 'block';
+        });
+
+        document.getElementById('products-button').addEventListener('click', function() {
+            hideAllSections();
+            document.getElementById('products').style.display = 'block';
+        });
+
+        document.getElementById('about-button').addEventListener('click', function() {
+            hideAllSections();
+            document.getElementById('about').style.display = 'block';
+        });
+
+        document.getElementById('contact-button').addEventListener('click', function() {
+            hideAllSections();
+            document.getElementById('contact').style.display = 'block';
+        });
+
+        // Sign In functionality
+        document.querySelector('.login-button').addEventListener('click', function() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username === registeredUser.username && password === registeredUser.password) {
+                document.getElementById('login-result').textContent = 'Login successful! Welcome to your dashboard.';
+                hideAllSections();
+                document.getElementById('home').style.display = 'block'; // Redirect to home or dashboard
+                document.getElementById('mpesa-payment').style.display = 'block'; // Show payment section
+            } else {
+                document.getElementById('login-result').textContent = 'Invalid username or password.';
+            }
+        });
+
+        // Sign Up functionality
+        document.querySelector('.register-button').addEventListener('click', function() {
+            const newUsername = document.getElementById('new-username').value;
+            const newPassword = document.getElementById('new-password').value;
+
+            if (newUsername && newPassword) {
+                // Register the new user (in real scenario, you'd save this data)
+                registeredUser = { username: newUsername, password: newPassword };
+                document.getElementById('login-result').textContent = 'Registration successful! You can now log in.';
+                document.getElementById('new-username').value = '';
+                document.getElementById('new-password').value = '';
+            } else {
+                document.getElementById('login-result').textContent = 'Please enter both username and password.';
+            }
+        });
+
+        // Add to cart functionality
+        document.querySelectorAll('.add-to-cart').forEach(button => {
+            button.addEventListener('click', function() {
+                const service = this.dataset.service;
+                cartItems.push(service);
+                updateCartDisplay();
+            });
+        });
+
+        // View cart functionality
+        document.querySelector('.view-cart').addEventListener('click', function() {
+            hideAllSections();
+            document.getElementById('cart').style.display = 'block';
+        });
+
+        // Function to update cart display
+        function updateCartDisplay() {
+            cartDisplay.textContent = cartItems.length > 0 ? cartItems.join(', ') : 'No services selected.';
+            cartCount.textContent = `Total services: ${cartItems.length}`;
+            document.getElementById('mpesa-payment').style.display = cartItems.length > 0 ? 'block' : 'none';
+        }
+
+        // M-Pesa payment functionality
+        document.querySelector('.pay-mpesa').addEventListener('click', function() {
+            const phone = document.getElementById('mpesa-phone').value;
+            const amount = document.getElementById('mpesa-amount').value;
+
+            if (phone && amount) {
+                document.getElementById('mpesa-result').textContent = `Payment of Ksh ${amount} initiated to ${phone}. Thank you!`;
+                document.getElementById('mpesa-phone').value = '';
+                document.getElementById('mpesa-amount').value = '';
+            } else {
+                document.getElementById('mpesa-result').textContent = 'Please enter a valid phone number and amount.';
+            }
+        });
+
+        // Next and Back button functionality
+        let currentSectionIndex = 0;
+        const sections = ['home', 'services', 'products', 'about', 'contact'];
+
+        function showSection(index) {
+            hideAllSections();
+            if (index >= 0 && index < sections.length) {
+                document.getElementById(sections[index]).style.display = 'block';
+                currentSectionIndex = index;
+            }
+        }
+
+        document.querySelectorAll('.next-button').forEach(button => {
+            button.addEventListener('click', function() {
+                showSection(currentSectionIndex + 1);
+            });
+        });
+
+        document.querySelectorAll('.back-button').forEach(button => {
+            button.addEventListener('click', function() {
+                showSection(currentSectionIndex - 1);
+            });
+        });
+    </script>
+</body>
+</html>
